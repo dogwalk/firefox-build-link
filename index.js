@@ -1,4 +1,5 @@
 const buttons = require('sdk/ui/button/action');
+const clipboard = require("sdk/clipboard");
 const tabs = require("sdk/tabs");
 
 const button = buttons.ActionButton({
@@ -12,12 +13,18 @@ const button = buttons.ActionButton({
   onClick: handleClick
 });
 
-function handleClick(state) {
-  tabs.open("http://www.mozilla.org/");
+function handleClick() {
+  const worker = tabs.activeTab.attach({
+    contentScriptFile: './content-script.js'
+  });
+  worker.port.on('copyToClipboard', (request) => {
+    clipboard.set(request);
+  });
+  worker.port.emit("buildLinkPlain");
 }
 
-require("sdk/tabs").on("ready", function(tab) {
-  tab.attach({
-    contentScript: "console.log(document.body.innerHTML);"
-  });
-});
+// tabs.on("ready", (tab) => {
+//   tab.attach({
+//     contentScript: "console.log(document.body.innerHTML);"
+//   });
+// });
