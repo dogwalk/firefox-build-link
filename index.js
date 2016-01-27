@@ -12,6 +12,6 @@ const button = buttons.ActionButton({
   onClick: handleClick
 });
 
-const handleClick = (state) => {
+function handleClick(state) {
   tabs.open("http://www.mozilla.org/");
-};
+}
