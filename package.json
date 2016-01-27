@@ -17,6 +17,7 @@
     "jpm": "^1.0.4"
   },
   "scripts": {
+    "start": "jpm run",
     "lint": "echo 0",
     "test": "jpm test",
     "verify": "npm run lint && npm run test"
