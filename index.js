@@ -2,8 +2,8 @@ const buttons = require('sdk/ui/button/action');
 const tabs = require("sdk/tabs");
 
 const button = buttons.ActionButton({
-  id: "build-link",
-  label: "Build Link",
+  id: "build-link-plain",
+  label: "Plain",
   icon: {
     "16": "./icon-16.png",
     "32": "./icon-32.png",
