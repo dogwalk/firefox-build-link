@@ -22,7 +22,7 @@
   },
   "scripts": {
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
-    "eslint": "eslint --fix --ext .js data test index.js",
+    "eslint": "eslint --ext .js data test index.js",
     "start": "jpm run",
     "lint": "npm run eclint && npm run eslint",
     "test": "jpm test",
