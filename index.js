@@ -1,9 +1,30 @@
-var self = require('sdk/self');
+const buttons = require('sdk/ui/button/action');
+const clipboard = require("sdk/clipboard");
+const tabs = require("sdk/tabs");
 
-// a dummy function, to show how tests work.
-// to see how to test this function, look at test/test-index.js
-function dummy(text, callback) {
-  callback(text);
+const button = buttons.ActionButton({
+  id: "build-link-plain",
+  label: "Plain",
+  icon: {
+    "16": "./icon-16.png",
+    "32": "./icon-32.png",
+    "64": "./icon-64.png"
+  },
+  onClick: handleClick
+});
+
+function handleClick() {
+  const worker = tabs.activeTab.attach({
+    contentScriptFile: './content-script.js'
+  });
+  worker.port.on('copyToClipboard', (request) => {
+    clipboard.set(request);
+  });
+  worker.port.emit("buildLinkPlain");
 }
 
-exports.dummy = dummy;
+// tabs.on("ready", (tab) => {
+//   tab.attach({
+//     contentScript: "console.log(document.body.innerHTML);"
+//   });
+// });
