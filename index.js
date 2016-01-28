@@ -1,4 +1,4 @@
-const buttons = require('sdk/ui/button/action');
+const { ActionButton } = require('sdk/ui/button/action');
 const clipboard = require('sdk/clipboard');
 const tabs = require('sdk/tabs');
 
