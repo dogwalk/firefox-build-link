@@ -1,18 +1,8 @@
 {
-  "title": "Build Link Plain",
   "name": "firefox-build-link-plain",
-  "version": "0.0.1",
   "description": "A basic add-on",
-  "main": "index.js",
+  "version": "0.0.1",
   "author": "sanemat",
-  "engines": {
-    "firefox": ">=38.0a1",
-    "fennec": ">=38.0a1"
-  },
-  "license": "MIT",
-  "keywords": [
-    "jetpack"
-  ],
   "devDependencies": {
     "eclint": "^1.1.5",
     "eslint": "^1.10.3",
@@ -21,13 +11,23 @@
     "globstar": "^1.0.0",
     "jpm": "^1.0.4"
   },
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "keywords": [
+    "jetpack"
+  ],
+  "license": "MIT",
+  "main": "index.js",
   "scripts": {
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "eslint": "eslint --ext .js data test index.js",
-    "start": "jpm run",
     "fixpack": "fixpack",
     "lint": "npm run eclint && npm run eslint",
+    "start": "jpm run",
     "test": "jpm test",
     "verify": "npm run lint && npm run test"
-  }
+  },
+  "title": "Build Link Plain"
 }
