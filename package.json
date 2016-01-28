@@ -31,6 +31,7 @@
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "eslint": "eslint --ext .js data test index.js",
     "fixpack": "fixpack",
+    "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",
     "start": "jpm run",
     "test": "jpm test",
