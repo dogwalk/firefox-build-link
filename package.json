@@ -2,8 +2,13 @@
   "name": "firefox-build-link-plain",
   "description": "A basic add-on",
   "version": "0.0.1",
-  "author": "sanemat",
+  "author": {
+    "name": "sanemat",
+    "email": "o.gata.ken@gmail.com",
+    "url": "sane.jp"
+  },
   "devDependencies": {
+    "conventional-changelog": "^0.5.3",
     "eclint": "^1.1.5",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^4.0.0",
@@ -20,7 +25,9 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "repository": "dogwalk/firefox-build-link-plain",
   "scripts": {
+    "changelog": "conventional-changelog -i changelog.md --overwrite --preset angular",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
     "eslint": "eslint --ext .js data test index.js",
     "fixpack": "fixpack",
