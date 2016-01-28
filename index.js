@@ -6,9 +6,9 @@ const button = buttons.ActionButton({
   id: "build-link-plain",
   label: "Plain",
   icon: {
-    "16": "./icon-16.png",
-    "32": "./icon-32.png",
-    "64": "./icon-64.png"
+    "16": "./filter3-16.png",
+    "32": "./filter3-32.png",
+    "64": "./filter3-64.png"
   },
   onClick: handleClick
 });
