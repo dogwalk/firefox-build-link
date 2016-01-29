@@ -14,19 +14,21 @@ const params = Object.assign(
   }
 );
 
-new Promise((resolve, reject) => {
-  const command = spawn('git', ['clone', '.', 'dist'], params);
-  command.on('error', (err) => {
-    reject(err);
-  });
-  command.on('close', (code) => {
-    if (code === 0) {
-      resolve();
-    } else {
-      reject(`exit code is ${code}`);
-    }
-  });
-}).then(() =>
+pify(rimraf)(path.join('.git', 'shallow')).then(() =>
+  new Promise((resolve, reject) => {
+    const command = spawn('git', ['clone', '.', 'dist'], params);
+    command.on('error', (err) => {
+      reject(err);
+    });
+    command.on('close', (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(`exit code is ${code}`);
+      }
+    });
+  })
+).then(() =>
   // remove bin/* from xpi package
   pify(rimraf)(path.join('dist', 'bin'))
 ).catch((error) => {
