@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 
 /* eslint-disable no-console */
+// Add GITHUB_TOKEN="....." to environment variable
+// see: https://github.com/tcnksm/ghr
 
 const spawn = require('cross-spawn-async');
+const yargs = require('yargs');
+const path = require('path');
+const assert = require('assert');
+
 const params = Object.assign(
   {},
   {
@@ -11,9 +17,6 @@ const params = Object.assign(
     env: process.env,
   }
 );
-const yargs = require('yargs');
-const path = require('path');
-const assert = require('assert');
 const ghrOptions = {
   username: process.env.CIRCLE_PROJECT_USERNAME,
   repository: process.env.CIRCLE_PROJECT_REPONAME,
