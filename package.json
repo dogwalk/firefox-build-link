@@ -32,6 +32,7 @@
   "scripts": {
     "build:clean": "bin/clean.js",
     "build:copy": "bin/copy.js",
+    "build:install": "bin/install.js",
     "build:pack": "bin/pack.js",
     "changelog": "conventional-changelog -i changelog.md --overwrite --preset angular",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
