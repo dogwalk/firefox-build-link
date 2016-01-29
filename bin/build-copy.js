@@ -20,7 +20,11 @@ new Promise((resolve, reject) => {
     reject(err);
   });
   command.on('close', (code) => {
-    (code === 0) ? resolve() : reject(`exit code is ${code}`);
+    if (code === 0) {
+      resolve();
+    } else {
+      reject(`exit code is ${code}`);
+    }
   });
 }).then(() => {
   // remove bin/* from xpi package
