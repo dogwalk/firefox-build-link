@@ -2,24 +2,10 @@
 
 /* eslint-disable no-console */
 
-const spawn = require('cross-spawn-async');
 const rimraf = require('rimraf');
-const params = Object.assign(
-  {},
-  {
-    stdio: 'inherit',
-    env: process.env,
-  }
-);
+const pify = require('pify');
 
-rimraf('dist', () => {
+pify(rimraf)('dist').catch((error) => {
   console.error(err);
   process.exit(1);
 });
-
-const gitDelete = spawn('git', ['branch', '-d', 'dist'], params);
-gitDelete.on('error', (err) => {
-  console.error(err);
-  process.exit(1);
-});
-

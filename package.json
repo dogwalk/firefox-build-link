@@ -16,6 +16,7 @@
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
     "jpm": "^1.0.4",
+    "pify": "^2.3.0",
     "rimraf": "^2.5.1"
   },
   "engines": {
