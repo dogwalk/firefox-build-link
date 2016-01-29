@@ -28,11 +28,11 @@ new Promise((resolve, reject) => {
       reject(`exit code is ${code}`);
     }
   });
-}).then(() => {
-  return pify(mkdirp)(path.join('dist', 'pkg'));
-}).then(() => {
-  return cpy([path.join('dist', '*.xpi')], path.join('dist', 'pkg'));
-}).catch((error) => {
+}).then(() =>
+  pify(mkdirp)(path.join('dist', 'pkg'))
+).then(() =>
+  cpy([path.join('dist', '*.xpi')], path.join('dist', 'pkg'))
+).catch((error) => {
   console.error(error);
   process.exit(1);
 });

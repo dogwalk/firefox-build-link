@@ -26,10 +26,10 @@ new Promise((resolve, reject) => {
       reject(`exit code is ${code}`);
     }
   });
-}).then(() => {
+}).then(() =>
   // remove bin/* from xpi package
-  return pify(rimraf)(path.join('dist', 'bin'));
-}).catch((error) => {
+  pify(rimraf)(path.join('dist', 'bin'))
+).catch((error) => {
   console.error(error);
   process.exit(1);
 });
