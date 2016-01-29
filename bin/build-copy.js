@@ -14,6 +14,7 @@ const params = Object.assign(
   }
 );
 
+// http://stackoverflow.com/questions/4770532/error-when-cloning-git-shallow-repository
 pify(rimraf)(path.join('.git', 'shallow')).then(() =>
   new Promise((resolve, reject) => {
     const command = spawn('git', ['clone', '.', 'dist'], params);
