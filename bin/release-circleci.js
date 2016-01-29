@@ -26,7 +26,18 @@ assert(argv.tag !== undefined && argv.tag !== '');
 assert(argv.username !== undefined && argv.username !== '');
 assert(argv.repository !== undefined && argv.repository !== '');
 
-const ghr = spawn(argv.ghrPath, ['-u', argv.username, '-r', argv.repository, argv.tag, argv.targetPath], params);
+const ghr = spawn(
+  argv.ghrPath,
+  [
+    '-u',
+    argv.username,
+    '-r',
+    argv.repository,
+    argv.tag,
+    argv.targetPath,
+  ],
+  params
+);
 ghr.on('error', (err) => {
   console.error(err);
   process.exit(1);
