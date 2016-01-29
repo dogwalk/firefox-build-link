@@ -1,3 +1,9 @@
+<a name="0.0.2"></a>
+## [0.0.2](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.1...v0.0.2) (2016-01-29)
+
+* Update build scripts
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2016-01-28)
 
