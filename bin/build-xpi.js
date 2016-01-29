@@ -3,7 +3,6 @@
 /* eslint-disable no-console */
 
 const spawn = require('cross-spawn-async');
-const pify = require('pify');
 const params = Object.assign(
   {},
   {
@@ -13,8 +12,8 @@ const params = Object.assign(
   }
 );
 
-pify(spawn)('npm', ['run', 'xpi'], params)
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+const xpi = spawn('npm', ['run', 'xpi'], params);
+xpi.on('error', (err) => {
+  console.error(err);
+  process.exit(1);
+});
