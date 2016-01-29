@@ -6,6 +6,6 @@ const rimraf = require('rimraf');
 const pify = require('pify');
 
 pify(rimraf)('dist').catch((error) => {
-  console.error(err);
+  console.error(error);
   process.exit(1);
 });
