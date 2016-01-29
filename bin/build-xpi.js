@@ -17,11 +17,11 @@ const params = Object.assign(
 );
 
 new Promise((resolve, reject) => {
-  const xpi = spawn('npm', ['run', 'xpi'], params);
-  xpi.on('error', (err) => {
+  const command = spawn('npm', ['run', 'xpi'], params);
+  command.on('error', (err) => {
     reject(err);
   });
-  xpi.on('close', (code) => {
+  command.on('close', (code) => {
     (code === 0) ? resolve() : reject(`exit code is ${code}`);
   });
 }).then(() => {
