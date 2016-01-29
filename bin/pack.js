@@ -3,7 +3,6 @@
 /* eslint-disable no-console */
 
 const spawn = require('cross-spawn-async');
-const path = require('path');
 const params = Object.assign(
   {},
   {
