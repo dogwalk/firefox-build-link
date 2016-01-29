@@ -11,8 +11,8 @@ const params = Object.assign(
   }
 );
 
-const worktree = spawn('git', ['worktree', 'add', '--detach', 'dist'], params);
-worktree.on('error', (err) => {
+const clone = spawn('git', ['clone', '.', 'dist'], params);
+clone.on('error', (err) => {
   console.error(err);
   process.exit(1);
 });
