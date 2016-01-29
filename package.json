@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "conventional-changelog": "^0.5.3",
+    "cpy": "^4.0.0",
     "cross-spawn-async": "^2.1.8",
     "eclint": "^1.1.5",
     "eslint": "^1.10.3",
@@ -16,8 +17,10 @@
     "fixpack": "^2.2.0",
     "globstar": "^1.0.0",
     "jpm": "^1.0.4",
+    "mkdirp": "^0.5.1",
     "pify": "^2.3.0",
-    "rimraf": "^2.5.1"
+    "rimraf": "^2.5.1",
+    "yargs": "^3.32.0"
   },
   "engines": {
     "firefox": ">=38.0a1",
