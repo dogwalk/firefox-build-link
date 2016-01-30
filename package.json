@@ -50,7 +50,7 @@
     "release": "npm run build:addon && ./bin/release-sign.js && ./bin/release-circleci.js",
     "start": "jpm run",
     "test": "jpm test",
-    "verify": "npm run lint && npm run test"
+    "verify": "npm run lint && npm run test && npm run build:addon"
   },
   "title": "Build Link Plain"
 }
