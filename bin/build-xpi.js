@@ -3,9 +3,6 @@
 /* eslint-disable no-console */
 
 const spawn = require('cross-spawn-async');
-const mkdirp = require('mkdirp');
-const cpy = require('cpy');
-const pify = require('pify');
 const path = require('path');
 const params = Object.assign(
   {},
@@ -15,9 +12,10 @@ const params = Object.assign(
     env: process.env,
   }
 );
+const jpmPath = path.join(process.cwd(), 'node_modules', '.bin', 'jpm');
 
 new Promise((resolve, reject) => {
-  const command = spawn('npm', ['run', 'xpi'], params);
+  const command = spawn(jpmPath, ['xpi'], params);
   command.on('error', (err) => {
     reject(err);
   });
@@ -28,11 +26,7 @@ new Promise((resolve, reject) => {
       reject(`exit code is ${code}`);
     }
   });
-}).then(() =>
-  pify(mkdirp)(path.join('dist', 'pkg'))
-).then(() =>
-  cpy([path.join('dist', '*.xpi')], path.join('dist', 'pkg'))
-).catch((error) => {
+}).catch((error) => {
   console.error(error);
   process.exit(1);
 });
