@@ -8,7 +8,7 @@ deployment:
   release:
     tag: /v[0-9]+(\.[0-9]+)*/
     commands:
-      - npm run build:addon:signed && ./bin/release-circleci.js
+      - npm run release
 general:
   branches:
     ignore:
