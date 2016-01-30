@@ -1,3 +1,5 @@
+'use strict';
+
 const isFirefoxAndroid = require('./lib/is-firefox-android')();
 const tabs = require('sdk/tabs');
 
@@ -14,7 +16,21 @@ function handleClick() {
   worker.port.emit('buildLinkPlain');
 }
 
-if (!isFirefoxAndroid) {
+if (isFirefoxAndroid) {
+  const { Cu } = require('chrome');
+  const getWindow = function get() {
+    Cu.import('resource://gre/modules/Services.jsm');
+    return Services.wm.getMostRecentWindow('navigator:browser');// eslint-disable-line no-undef
+  };
+  const nativeWindow = getWindow().NativeWindow;
+  let menuId = 0;
+  exports.main = function load(options, callback) {// eslint-disable-line no-unused-vars
+    menuId = nativeWindow.menu.add('Link Plain', null, () => void 0);
+  };
+  exports.onUnload = function unload(reason) {// eslint-disable-line no-unused-vars
+    nativeWindow.menu.remove(menuId);
+  };
+} else {
   const { ActionButton } = require('sdk/ui/button/action');
   ActionButton({ // eslint-disable-line new-cap
     id: 'build-link-plain',
