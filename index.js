@@ -18,16 +18,16 @@ function handleClick() {
 
 if (isFirefoxAndroid) {
   const { Cu } = require('chrome');
-  const getWindow = function get() {
+  const getWindow = () => {
     Cu.import('resource://gre/modules/Services.jsm');
     return Services.wm.getMostRecentWindow('navigator:browser');// eslint-disable-line no-undef
   };
   const nativeWindow = getWindow().NativeWindow;
   let menuId = 0;
-  exports.main = function load(options, callback) {// eslint-disable-line no-unused-vars
+  exports.main = (options, callback) => {// eslint-disable-line no-unused-vars
     menuId = nativeWindow.menu.add('Link Plain', null, () => void 0);
   };
-  exports.onUnload = function unload(reason) {// eslint-disable-line no-unused-vars
+  exports.onUnload = (reason) => {// eslint-disable-line no-unused-vars
     nativeWindow.menu.remove(menuId);
   };
 } else {
