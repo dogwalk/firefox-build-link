@@ -21,7 +21,7 @@ const ghrOptions = {
   username: process.env.CIRCLE_PROJECT_USERNAME,
   repository: process.env.CIRCLE_PROJECT_REPONAME,
   tag: process.env.CIRCLE_TAG,
-  ghrPath: path.join(process.cwd(), 'bin', 'ghr-linux_amd64'),
+  ghrPath: path.join(process.cwd(), 'bin', 'linux_amd64', 'ghr'),
   targetPath: path.join(process.cwd(), 'dist', 'pkg'),
 };
 const argv = yargs.default(ghrOptions).argv;
