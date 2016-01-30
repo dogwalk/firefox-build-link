@@ -11,6 +11,7 @@ const pify = require('pify');
 const path = require('path');
 const yargs = require('yargs');
 const assert = require('assert');
+const glob = require('glob');
 const params = Object.assign(
   {},
   {
@@ -28,27 +29,33 @@ const argv = yargs.default(signOptions).argv;
 assert(argv.apiKey !== undefined && argv.apiKey !== '');
 assert(argv.apiSecret !== undefined && argv.apiSecret !== '');
 
-new Promise((resolve, reject) => {
-  const command = spawn(
-    jpmPath,
-    [
-      'sign',
-      '--api-key',
-      argv.apiKey,
-      '--api-secret',
-      argv.apiSecret,
-    ],
-    params
-  );
-  command.on('error', (err) => {
-    reject(err);
-  });
-  command.on('close', (code) => {
-    if (code === 0) {
-      resolve();
-    } else {
-      reject(`exit code is ${code}`);
-    }
+pify(glob)('*.xpi', { cwd: path.join(process.cwd(), 'dist') }
+).then((result) => {
+  const xpiFile = result[0];
+  return new Promise((resolve, reject) => {
+    const command = spawn(
+      jpmPath,
+      [
+        'sign',
+        '--api-key',
+        argv.apiKey,
+        '--api-secret',
+        argv.apiSecret,
+        '--xpi',
+        xpiFile,
+      ],
+      params
+    );
+    command.on('error', (err) => {
+      reject(err);
+    });
+    command.on('close', (code) => {
+      if (code === 0) {
+        resolve();
+      } else {
+        reject(`exit code is ${code}`);
+      }
+    });
   });
 }).then(() =>
   pify(mkdirp)(path.join('dist', 'pkg'))
