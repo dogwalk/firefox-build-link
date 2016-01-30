@@ -1,3 +1,9 @@
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.7...v0.0.8) (2016-01-30)
+
+* Ping circleci build
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.6...v0.0.7) (2016-01-30)
 
