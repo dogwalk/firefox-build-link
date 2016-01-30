@@ -46,6 +46,7 @@ pify(glob)('*.xpi', { cwd: path.join(process.cwd(), 'dist') }
         xpiFile,
         '--timeout',
         argv.timeout,
+        '--verbose',
       ],
       params
     );
