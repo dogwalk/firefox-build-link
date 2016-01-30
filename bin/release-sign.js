@@ -24,6 +24,7 @@ const jpmPath = path.join(process.cwd(), 'node_modules', '.bin', 'jpm');
 const signOptions = {
   apiKey: process.env.AMO_API_KEY,
   apiSecret: process.env.AMO_API_SECRET,
+  timeout: (5 * 60 * 1000).toString(),
 };
 const argv = yargs.default(signOptions).argv;
 assert(argv.apiKey !== undefined && argv.apiKey !== '');
@@ -43,6 +44,8 @@ pify(glob)('*.xpi', { cwd: path.join(process.cwd(), 'dist') }
         argv.apiSecret,
         '--xpi',
         xpiFile,
+        '--timeout',
+        argv.timeout,
       ],
       params
     );
