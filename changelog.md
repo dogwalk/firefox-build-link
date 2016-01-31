@@ -1,3 +1,13 @@
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.1.0...v1.0.0) (2016-01-31)
+
+
+### Features
+
+* **select:** use selected text ([238f55b](https://github.com/dogwalk/firefox-build-link-plain/commit/238f55b))
+* **notify:** notify "copied" ([0ff6cfe](https://github.com/dogwalk/firefox-build-link-plain/commit/0ff6cfe))
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.9...v0.1.0) (2016-01-31)
 
