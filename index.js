@@ -7,7 +7,7 @@ function handleClick() {
   const worker = tabs.activeTab.attach({
     contentScriptFile: './content-script.js',
   });
-  worker.port.on('copyToClipboard', (request) => {
+  worker.port.on('copyToSystem', (request) => {
     if (isFirefoxAndroid) {
       const { Cc, Ci } = require('chrome');
       const prompts = Cc['@mozilla.org/embedcomp/prompt-service;1']
