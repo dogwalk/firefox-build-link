@@ -8,7 +8,12 @@ function handleClick() {
     contentScriptFile: './content-script.js',
   });
   worker.port.on('copyToClipboard', (request) => {
-    if (!isFirefoxAndroid) {
+    if (isFirefoxAndroid) {
+      const { Cc, Ci } = require('chrome');
+      const prompts = Cc['@mozilla.org/embedcomp/prompt-service;1']
+        .getService(Ci.nsIPromptService);
+      prompts.prompt(null, 'Build Link Plain', 'Built link', { value: request }, null, { value: false });
+    } else {
       const clipboard = require('sdk/clipboard');
       clipboard.set(request);
     }
@@ -25,7 +30,10 @@ if (isFirefoxAndroid) {
   const nativeWindow = getWindow().NativeWindow;
   let menuId = 0;
   exports.main = (options, callback) => {// eslint-disable-line no-unused-vars
-    menuId = nativeWindow.menu.add('Link Plain', null, () => void 0);
+    menuId = nativeWindow.menu.add({
+      name: 'Link Plain',
+      callback: handleClick,
+    });
   };
   exports.onUnload = (reason) => {// eslint-disable-line no-unused-vars
     nativeWindow.menu.remove(menuId);
