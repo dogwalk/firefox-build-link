@@ -42,7 +42,7 @@ if (isFirefoxAndroid) {
   };
 } else {
   const { ActionButton } = require('sdk/ui/button/action');
-  ActionButton({ // eslint-disable-line new-cap
+  ActionButton({// eslint-disable-line new-cap
     id: 'build-link-plain',
     label: 'Plain',
     icon: {
