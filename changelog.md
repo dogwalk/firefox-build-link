@@ -1,3 +1,17 @@
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.9...v0.1.0) (2016-01-31)
+
+* Support Firefox for Android
+
+
+### Features
+
+* **link:** support android prompt ([8ce2ba1](https://github.com/dogwalk/firefox-build-link-plain/commit/8ce2ba1))
+* **panel:** add panel for android ([c2118c5](https://github.com/dogwalk/firefox-build-link-plain/commit/c2118c5))
+* **switch:** swith between desktop and android ([5544da3](https://github.com/dogwalk/firefox-build-link-plain/commit/5544da3))
+
+
+
 <a name="0.0.9"></a>
 ## [0.0.9](https://github.com/dogwalk/firefox-build-link-plain/compare/v0.0.8...v0.0.9) (2016-01-30)
 
