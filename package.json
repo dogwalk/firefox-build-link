@@ -43,7 +43,7 @@
     "build:xpi": "bin/build-xpi.js",
     "changelog": "conventional-changelog -i changelog.md --overwrite --preset angular",
     "eclint": "globstar --ignore \"node_modules/**\" -- eclint check \"*.{js,yml,md,json}\"",
-    "eslint": "eslint --ext .js data test index.js bin",
+    "eslint": "eslint --ext .js data test index.js bin lib",
     "fixpack": "fixpack",
     "git:tag": "git tag v${npm_package_version}",
     "lint": "npm run eclint && npm run eslint",

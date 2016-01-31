@@ -4,5 +4,5 @@ self.port.on('buildLinkPlain', () => {
   const result = [];
   result.push(title);
   result.push(url);
-  self.port.emit('copyToClipboard', result.join(' '));
+  self.port.emit('copyToSystem', result.join(' '));
 });
