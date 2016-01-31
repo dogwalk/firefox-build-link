@@ -22,11 +22,7 @@ function handleClick() {
 }
 
 if (isFirefoxAndroid) {
-  const { Cu } = require('chrome');
-  const getWindow = () => {
-    Cu.import('resource://gre/modules/Services.jsm');
-    return Services.wm.getMostRecentWindow('navigator:browser');// eslint-disable-line no-undef
-  };
+  const getWindow = require('./lib/get-window');
   const nativeWindow = getWindow().NativeWindow;
   let menuId = 0;
   exports.main = (options, callback) => {// eslint-disable-line no-unused-vars
