@@ -53,9 +53,3 @@ if (isFirefoxAndroid) {
     onClick: handleClick,
   });
 }
-
-// tabs.on("ready", (tab) => {
-//   tab.attach({
-//     contentScript: "console.log(document.body.innerHTML);"
-//   });
-// });
