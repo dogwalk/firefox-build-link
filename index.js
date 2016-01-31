@@ -30,16 +30,15 @@ function handleClick() {
 
 if (isFirefoxAndroid) {
   const getWindow = require('./lib/get-window');
-  const nativeWindow = getWindow().NativeWindow;
   let menuId = 0;
   exports.main = (options, callback) => {// eslint-disable-line no-unused-vars
-    menuId = nativeWindow.menu.add({
+    menuId = getWindow().NativeWindow.menu.add({
       name: 'Link Plain',
       callback: handleClick,
     });
   };
   exports.onUnload = (reason) => {// eslint-disable-line no-unused-vars
-    nativeWindow.menu.remove(menuId);
+    getWindow().NativeWindow.menu.remove(menuId);
   };
 } else {
   const { ActionButton } = require('sdk/ui/button/action');
