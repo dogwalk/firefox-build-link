@@ -1,6 +1,8 @@
 # Build Link Plain
 
-A basic add-on
+Build a plain link from the selected text or the current page's title.
+
+For firefox for desktop and firefox for android.
 
 
 ## Credit
