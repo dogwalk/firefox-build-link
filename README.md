@@ -4,6 +4,8 @@ Build a plain link from the selected text or the current page's title.
 
 For firefox for desktop and firefox for android.
 
+![build-link-plain](https://cloud.githubusercontent.com/assets/75448/12701486/18938e54-c84e-11e5-8201-5935dcb350a2.png)
+
 
 ## Credit
 
