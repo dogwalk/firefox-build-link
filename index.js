@@ -12,7 +12,14 @@ function handleClick() {
       const { Cc, Ci } = require('chrome');
       const prompts = Cc['@mozilla.org/embedcomp/prompt-service;1']
         .getService(Ci.nsIPromptService);
-      prompts.prompt(null, 'Build Link Plain', 'Built link', { value: request }, null, { value: false });
+      prompts.prompt(
+        null,
+        'Build Link Plain',
+        'Built link',
+        { value: request },
+        null,
+        { value: false }
+      );
     } else {
       const clipboard = require('sdk/clipboard');
       clipboard.set(request);
