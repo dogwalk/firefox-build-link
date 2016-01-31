@@ -8,6 +8,15 @@
 ![build-link-plain](https://cloud.githubusercontent.com/assets/75448/12701486/18938e54-c84e-11e5-8201-5935dcb350a2.png)
 
 
+## Note
+
+### Fail to sign xpi on CircleCI
+
+* Visit CircleCI page
+* Debug via SSH
+* `% cd $CIRCLE_PROJECT_REPONAME && npm run release`
+
+
 ## Changelog
 
 [changelog.md](./changelog.md).
