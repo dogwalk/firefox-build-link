@@ -1,10 +1,10 @@
 'use strict';
 
-const isFirefoxAndroid = require('./lib/is-firefox-android')();
+const isFirefoxAndroid = require('is-firefox-android')();
 const handleClick = require('./lib/handle-click');
 
 if (isFirefoxAndroid) {
-  const getWindow = require('firefox-get-browser-window');
+  const getWindow = require('get-firefox-browser-window');
   let menuId = 0;
   exports.main = (options, callback) => {// eslint-disable-line no-unused-vars
     menuId = getWindow().NativeWindow.menu.add({

@@ -8,7 +8,8 @@
     "url": "sane.jp"
   },
   "dependencies": {
-    "firefox-get-browser-window": "^1.0.0"
+    "get-firefox-browser-window": "^2.0.0",
+    "is-firefox-android": "^2.0.0"
   },
   "devDependencies": {
     "conventional-changelog": "^0.5.3",
