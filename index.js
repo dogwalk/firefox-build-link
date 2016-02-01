@@ -1,6 +1,6 @@
 'use strict';
 
-const isFirefoxAndroid = require('./lib/is-firefox-android')();
+const isFirefoxAndroid = require('is-firefox-android')();
 const handleClick = require('./lib/handle-click');
 
 if (isFirefoxAndroid) {
