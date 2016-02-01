@@ -7,6 +7,9 @@
     "email": "o.gata.ken@gmail.com",
     "url": "sane.jp"
   },
+  "dependencies": {
+    "firefox-get-browser-window": "^1.0.0"
+  },
   "devDependencies": {
     "conventional-changelog": "^0.5.3",
     "cpy": "^4.0.0",
