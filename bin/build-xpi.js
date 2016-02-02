@@ -4,6 +4,9 @@
 
 const spawn = require('cross-spawn-async');
 const path = require('path');
+const mkdirp = require('mkdirp');
+const cpy = require('cpy');
+const pify = require('pify');
 const params = Object.assign(
   {},
   {
@@ -26,7 +29,11 @@ new Promise((resolve, reject) => {
       reject(`exit code is ${code}`);
     }
   });
-}).catch((error) => {
+}).then(() =>
+  pify(mkdirp)(path.join('dist', 'pkg'))
+).then(() =>
+  cpy([path.join('dist', '*.xpi')], path.join('dist', 'pkg'))
+).catch((error) => {
   console.error(error);
   process.exit(1);
 });
