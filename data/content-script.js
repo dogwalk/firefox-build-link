@@ -1,4 +1,5 @@
 self.port.on('buildLinkPlain', () => {
+  /* global browserSelectedText:false */
   // browser-selected-text https://www.npmjs.com/package/browser-selected-text
   const selected = browserSelectedText();
   const title = window.document.title;
